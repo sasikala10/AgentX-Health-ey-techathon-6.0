@@ -33,98 +33,115 @@ if 'df' not in st.session_state:
 # Audit logs
 if 'logs' not in st.session_state:
     st.session_state.logs = []
-
 # --- HOME PAGE ---
-
-   # --- HOME PAGE ---
-
-    # --- HOME PAGE ---
 if page == "Home":
+
+    # CSS + JS
     st.markdown("""
     <style>
-    /* Shake animation on hover */
-    @keyframes shake {
-        0% { transform: translate(1px, 1px) rotate(0deg); }
-        10% { transform: translate(-1px, -2px) rotate(-1deg); }
-        20% { transform: translate(-3px, 0px) rotate(1deg); }
-        30% { transform: translate(3px, 2px) rotate(0deg); }
-        40% { transform: translate(1px, -1px) rotate(1deg); }
-        50% { transform: translate(-1px, 2px) rotate(-1deg); }
-        60% { transform: translate(-3px, 1px) rotate(0deg); }
-        70% { transform: translate(3px, 1px) rotate(-1deg); }
-        80% { transform: translate(-1px, -1px) rotate(1deg); }
-        90% { transform: translate(1px, 2px) rotate(0deg); }
-        100% { transform: translate(1px, -2px) rotate(-1deg); }
-    }
-
-    .shake:hover {
-        animation: shake 0.5s;
-        animation-iteration-count: 1;
-    }
-
-    body {
-        background: linear-gradient(to right, #E0EAFC, #CFDEF3);
-        font-family: Arial, sans-serif;
-    }
-
-    .title {
-        color: #2E86C1;
+    .app-title {
         font-size: 70px;
-        font-weight: bold;
+        font-weight: 800;
         text-align: center;
-        margin-bottom: 10px;
+        color: #1F4FD8;
         cursor: pointer;
     }
 
     .subtitle {
-        color: #117A65;
-        font-size: 30px;
+        display: none;
         text-align: center;
-        margin-bottom: 30px;
+        font-size: 26px;
+        margin-top: 10px;
+        font-weight: 500;
+    }
+
+    .card {
+        padding: 25px;
+        border-radius: 18px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 500;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        transition: transform 0.3s ease;
         cursor: pointer;
     }
 
-    .section {
-        font-size: 22px;
-        margin: 15px auto;
-        padding: 15px;
-        border-radius: 15px;
-        font-weight: bold;
-        text-align: center;
-        max-width: 900px;
-        cursor: pointer;
+    .card:hover {
+        transform: translateY(-8px);
     }
 
-    .purpose { background-color: #28a745; color: white; }
-    .features { background-color: #ffc107; color: black; }
-    .outcome { background-color: #dc3545; color: white; }
-
-    .icon {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 150px;
-        margin-bottom: 30px;
+    .get-started {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
     }
     </style>
 
-    <div class="title shake">AgentX Health</div>
-    <div class="subtitle shake">Automated Healthcare Provider Data Validation using Agentic AI</div>
-
-    <img src='https://cdn-icons-png.flaticon.com/512/2910/2910762.png' class='icon'/>
-
-    <div class="section purpose shake">Purpose: Ensure accurate, up-to-date doctor information across healthcare directories.</div>
-    <div class="section features shake">Features: Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.</div>
-    <div class="section outcome shake">Outcome: Faster updates, reduced errors, improved patient trust.</div>
+    <script>
+    function showSubtitle() {
+        var x = document.getElementById("subtitle");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }
+    }
+    </script>
     """, unsafe_allow_html=True)
 
-
+    # Title (Big X)
     st.markdown("""
-<h3 style='color:#2E86C1;'>Automated Healthcare Provider Data Validation using Agentic AI</h3>
-<p style='color:#117A65;'><b>Purpose:</b> Ensure accurate, up-to-date doctor information across healthcare directories.</p>
-<p style='color:#AF601A;'><b>Features:</b> Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.</p>
-<p style='color:#C0392B;'><b>Outcome:</b> Faster updates, reduced errors, improved patient trust.</p>
-""", unsafe_allow_html=True)
+    <div class="app-title" onclick="showSubtitle()">
+        Agent<span style="font-size:90px;">X</span> Health
+    </div>
+    <div id="subtitle" class="subtitle">
+        Automated Healthcare Provider Data Validation using Agentic AI
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.image(
+        "https://cdn-icons-png.flaticon.com/512/387/387561.png",  # dummy doctor image
+        width=160
+    )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    # Three boxes
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
+        <div class="card">
+            🛡️<br><br>
+            <b>Accurate Doctor Data Validation</b><br><br>
+            Verify healthcare provider credentials and information with AI-powered precision,
+            ensuring data accuracy and compliance.
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("""
+        <div class="card">
+            ⚙️<br><br>
+            <b>Intelligent Automation</b><br><br>
+            Faster updates and reduced errors through agentic AI workflows that automate
+            complex validation processes effortlessly.
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("""
+        <div class="card">
+            ❤️<br><br>
+            <b>Improved Patient Trust</b><br><br>
+            Build confidence and trust with verified, up-to-date provider information
+            that patients can rely on.
+        </div>
+        """, unsafe_allow_html=True)
+
+    # Get Started Button
+    st.markdown("<div class='get-started'>", unsafe_allow_html=True)
+    if st.button("🚀 Get Started"):
+        st.session_state.page = "Provider Dashboard"
+    st.markdown("</div>", unsafe_allow_html=True)
 
 
 # --- PROVIDER DASHBOARD ---
