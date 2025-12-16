@@ -1,184 +1,142 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import time
 from PIL import Image
-import requests
+import time
 from io import BytesIO
+import requests
 
 # --- Page configuration ---
 st.set_page_config(page_title="AgentX Health – EY Techathon", layout="wide")
 
-# --- Sidebar Navigation ---
-st.sidebar.title("AgentX Health")
-page = st.sidebar.radio("Go to", ["Home", "Provider Dashboard", "Validation Simulation", "Analytics", "Audit Logs"])
+# --- Session state for navigation ---
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
 
-# --- Sample Doctor Data with Image URLs ---
+# --- Doctor Data Sample ---
 doctor_data = [
-    {"name": "Dr. A Kumar", "specialty": "Cardiology", "phone":"9876543210","address":"Chennai","image":"https://img.freepik.com/premium-photo/portrait-handsome-young-doctor-standing-against-white-background-created-with-generative-ai_762026-44070.jpg"},
-    {"name": "Dr. S Mehta", "specialty": "Dermatology", "phone":"9876543211","address":"Bengaluru","image":"https://th.bing.com/th/id/R.256ff89b8455578cb07f46a207a4d6ae?rik=wamzqu6ozFnjjw&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f210000%2fvelka%2fdoctor-1490804643Rfi.jpg&ehk=xVsfwkQ4RsL0lPNklpn0uYssY%2fJJqHho%2bhw1KPmGMXU%3d&risl=&pid=ImgRaw&r=0"},
-    {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"https://media.istockphoto.com/photos/happy-indian-doctor-picture-id501700964?k=6&m=501700964&s=612x612&w=0&h=OCLyccpgSd0t3qPhlOGI-lpimvvuv7-GHB6ECHAzKsM="},
-    {"name": "Dr. L Sharma", "specialty": "Orthopedics", "phone":"9876543213","address":"Mumbai","image":"https://iqraahospital.in/wp-content/uploads/2016/12/02.jpg"},
-    {"name": "Dr. N Rithika", "specialty": "Pediatrics", "phone":"9876543214","address":"Delhi","image":"https://img.freepik.com/premium-photo/portrait-young-beautiful-smiling-indian-female-doctor-standing-isolated-background_1025753-91569.jpg?w=360"},
-    {"name": "Dr. P  Preetha Singh", "specialty": "Oncology", "phone":"9876543215","address":"Kolkata","image":"https://img.freepik.com/premium-photo/indian-doctor-wearing-white-coat-with-stethoscope_85574-3676.jpg"},
-    {"name": "Dr. K Rao", "specialty": "ENT", "phone":"9876543216","address":"Pune","image":"https://tse2.mm.bing.net/th/id/OIP.3-BqmEwTqiYWLTXniQheegAAAA?cb=ucfimg2&ucfimg=1&w=366&h=606&rs=1&pid=ImgDetMain&o=7&rm=3"},
-    {"name": "Dr. M Das", "specialty": "Gynecology", "phone":"9876543217","address":"Jaipur","image":"https://as1.ftcdn.net/v2/jpg/00/47/00/44/1000_F_47004476_SYtxJxdbrzsVkTGMB0RGhomIKlnzLsSe.jpg"}
+    {"name": f"Dr. {i} Name", "specialty": np.random.choice(
+        ["Cardiology","Dermatology","Neurology","Orthopedics","Pediatrics","Oncology","ENT","Gynecology","Urology","Psychiatry"]),
+     "phone": f"98765432{i:02}", "address": f"City {i}",
+     "image":"https://cdn-icons-png.flaticon.com/512/387/387561.png"} for i in range(1,11)
 ]
 
-# Convert to DataFrame in session_state
+# Convert to DataFrame
 if 'df' not in st.session_state:
     st.session_state.df = pd.DataFrame(doctor_data)
-    st.session_state.df['Validation Status'] = np.random.choice(["Verified","Needs Review","Error"], len(doctor_data), p=[0.6,0.3,0.1])
+    st.session_state.df['Validation Status'] = np.random.choice(
+        ["Verified","Needs Review","Error"], len(doctor_data), p=[0.6,0.3,0.1])
 
 # Audit logs
 if 'logs' not in st.session_state:
     st.session_state.logs = []
-# --- HOME PAGE ---
-if page == "Home":
 
-    # CSS + JS
+# --- HOME PAGE ---
+if st.session_state.page=="Home":
+
     st.markdown("""
     <style>
     .app-title {
-        font-size: 70px;
-        font-weight: 800;
-        text-align: center;
-        color: #1F4FD8;
-        cursor: pointer;
+        font-size: 70px; font-weight: 800; text-align: center; color: #1F4FD8; cursor: pointer;
     }
-
-    .subtitle {
-        display: none;
-        text-align: center;
-        font-size: 26px;
-        margin-top: 10px;
-        font-weight: 500;
-    }
-
-    .card {
-        padding: 25px;
-        border-radius: 18px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 500;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-        transition: transform 0.3s ease;
-        cursor: pointer;
-    }
-
-    .card:hover {
-        transform: translateY(-8px);
-    }
-
-    .get-started {
-        margin-top: 40px;
-        display: flex;
-        justify-content: center;
-    }
+    .subtitle { display:none; text-align:center; font-size:26px; margin-top:10px; font-weight:500; }
+    .card { padding:25px; border-radius:18px; text-align:center; font-size:18px; font-weight:500; 
+            box-shadow:0 6px 18px rgba(0,0,0,0.12); transition: transform 0.3s ease; cursor:pointer; }
+    .card:hover { transform: translateY(-8px); }
+    .get-started { margin-top:40px; display:flex; justify-content:center; }
     </style>
-
     <script>
     function showSubtitle() {
         var x = document.getElementById("subtitle");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        }
+        if (x.style.display === "none") { x.style.display = "block"; }
     }
     </script>
     """, unsafe_allow_html=True)
 
-    # Title (Big X)
     st.markdown("""
-    <div class="app-title" onclick="showSubtitle()">
-        Agent<span style="font-size:90px;">X</span> Health
-    </div>
-    <div id="subtitle" class="subtitle">
-        Automated Healthcare Provider Data Validation using Agentic AI
-    </div>
+    <div class="app-title" onclick="showSubtitle()">Agent<span style="font-size:90px;">X</span> Health</div>
+    <div id="subtitle" class="subtitle">Automated Healthcare Provider Data Validation using Agentic AI</div>
     """, unsafe_allow_html=True)
 
-    st.image(
-        "https://cdn-icons-png.flaticon.com/512/387/387561.png",  # dummy doctor image
-        width=160
-    )
+    st.image("https://cdn-icons-png.flaticon.com/512/387/387561.png", width=160)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Three boxes
     col1, col2, col3 = st.columns(3)
-
     with col1:
         st.markdown("""
-        <div class="card">
-            🛡️<br><br>
-            <b>Accurate Doctor Data Validation</b><br><br>
-            Verify healthcare provider credentials and information with AI-powered precision,
-            ensuring data accuracy and compliance.
+        <div class="card" style="background-color:#D4EFDF;">🛡️<br><br>
+        <b>Accurate Doctor Data Validation</b><br><br>
+        Verify healthcare provider credentials and information with AI-powered precision, ensuring data accuracy and compliance.
         </div>
         """, unsafe_allow_html=True)
-
     with col2:
         st.markdown("""
-        <div class="card">
-            ⚙️<br><br>
-            <b>Intelligent Automation</b><br><br>
-            Faster updates and reduced errors through agentic AI workflows that automate
-            complex validation processes effortlessly.
+        <div class="card" style="background-color:#FEF9E7;">⚙️<br><br>
+        <b>Intelligent Automation</b><br><br>
+        Faster updates and reduced errors through agentic AI workflows that automate complex validation processes effortlessly.
         </div>
         """, unsafe_allow_html=True)
-
     with col3:
         st.markdown("""
-        <div class="card">
-            ❤️<br><br>
-            <b>Improved Patient Trust</b><br><br>
-            Build confidence and trust with verified, up-to-date provider information
-            that patients can rely on.
+        <div class="card" style="background-color:#FADBD8;">❤️<br><br>
+        <b>Improved Patient Trust</b><br><br>
+        Build confidence and trust with verified, up-to-date provider information that patients can rely on.
         </div>
         """, unsafe_allow_html=True)
 
-    # Get Started Button
+    st.markdown("<br>", unsafe_allow_html=True)
+    # Get Started
     st.markdown("<div class='get-started'>", unsafe_allow_html=True)
     if st.button("🚀 Get Started"):
-        st.session_state.page = "Provider Dashboard"
+        st.session_state.page="Provider Dashboard"
     st.markdown("</div>", unsafe_allow_html=True)
 
-
 # --- PROVIDER DASHBOARD ---
-elif page == "Provider Dashboard":
-    st.title("Provider Directory Dashboard")
-    st.markdown("Filter and explore provider validation status:")
+elif st.session_state.page=="Provider Dashboard":
+    st.markdown("<h1 style='text-align:center; color:#2E86C1; font-size:48px;'>Provider Directory Dashboard</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align:center; font-size:20px; color:#566573;'>Filter and explore provider validation status:</p>", unsafe_allow_html=True)
 
-    specialty_filter = st.multiselect("Select Specialty", st.session_state.df['specialty'].unique())
-    status_filter = st.multiselect("Select Status", st.session_state.df['Validation Status'].unique())
+    # Filters
+    specialties = st.session_state.df['specialty'].unique().tolist()
+    status_list = ["Verified","Needs Review","Error"]
 
+    col1, col2 = st.columns(2)
+    with col1:
+        specialty_filter = st.multiselect("Select Specialty", specialties)
+    with col2:
+        status_filter = st.multiselect("Select Status", status_list)
+
+    # Filter dataframe
     df_filtered = st.session_state.df.copy()
     if specialty_filter:
         df_filtered = df_filtered[df_filtered['specialty'].isin(specialty_filter)]
     if status_filter:
         df_filtered = df_filtered[df_filtered['Validation Status'].isin(status_filter)]
 
+    # Display doctors in grid
     for i in range(0, len(df_filtered), 4):
         cols = st.columns(4)
-        for j, idx in enumerate(range(i, min(i+4, len(df_filtered)))):
+        for j, idx in enumerate(range(i, min(i+4,len(df_filtered)))):
             with cols[j]:
                 doc = df_filtered.iloc[idx]
-                # Load image from URL
                 try:
                     response = requests.get(doc['image'])
                     img = Image.open(BytesIO(response.content))
                     st.image(img, width=100)
                 except:
-                    st.image("https://cdn-icons-png.flaticon.com/512/2910/2910762.png", width=100)
+                    st.image("https://cdn-icons-png.flaticon.com/512/387/387561.png", width=100)
                 st.markdown(f"**{doc['name']}**")
                 st.markdown(f"{doc['specialty']}")
+                st.markdown(f"{doc['phone']}")
+                st.markdown(f"{doc['address']}")
                 # Color-coded status
-                status = doc['Validation Status']
-                color = "#28a745" if status=="Verified" else "#ffc107" if status=="Needs Review" else "#dc3545"
-                st.markdown(f"<div style='background-color:{color}; padding:5px; text-align:center;'>{status}</div>", unsafe_allow_html=True)
+                status_color = "#28A745" if doc['Validation Status']=="Verified" else "#FFC107" if doc['Validation Status']=="Needs Review" else "#DC3545"
+                st.markdown(f"<div style='background-color:{status_color}; padding:5px; text-align:center;'>{doc['Validation Status']}</div>", unsafe_allow_html=True)
 
 # --- VALIDATION SIMULATION ---
-elif page == "Validation Simulation":
+elif st.session_state.page=="Validation Simulation":
     st.title("Simulate New Provider Validation")
     with st.form(key="validation_form"):
         name = st.text_input("Doctor Name")
@@ -192,23 +150,13 @@ elif page == "Validation Simulation":
         time.sleep(1.5)
         status = np.random.choice(["Verified","Needs Review","Error"], p=[0.6,0.3,0.1])
         st.success(f"{name} ({specialty}) validated: {status}")
-        # Balloons only if Verified
-        if status == "Verified":
-            st.balloons()
-        # Add to df & logs
-        new_doc = {
-            "name": name,
-            "specialty": specialty,
-            "phone": phone,
-            "address": address,
-            "image": "https://cdn-icons-png.flaticon.com/512/2910/2910762.png",
-            "Validation Status": status
-        }
+        if status=="Verified": st.balloons()
+        new_doc = {"name":name,"specialty":specialty,"phone":phone,"address":address,"image":"https://cdn-icons-png.flaticon.com/512/387/387561.png","Validation Status":status}
         st.session_state.df = pd.concat([st.session_state.df, pd.DataFrame([new_doc])], ignore_index=True)
         st.session_state.logs.append(new_doc)
 
 # --- ANALYTICS ---
-elif page == "Analytics":
+elif st.session_state.page=="Analytics":
     st.title("Validation Analytics")
     status_counts = st.session_state.df['Validation Status'].value_counts()
     st.bar_chart(status_counts)
@@ -216,7 +164,7 @@ elif page == "Analytics":
     st.bar_chart(st.session_state.df['specialty'].value_counts())
 
 # --- AUDIT LOGS ---
-elif page == "Audit Logs":
+elif st.session_state.page=="Audit Logs":
     st.title("Audit Logs")
     if st.session_state.logs:
         st.dataframe(pd.DataFrame(st.session_state.logs))
