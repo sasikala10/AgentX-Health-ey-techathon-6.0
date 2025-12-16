@@ -36,14 +36,21 @@ if 'logs' not in st.session_state:
 
 # --- HOME PAGE ---
 if page == "Home":
-    st.markdown("<h1 style='text-align: center; color: #2E86C1;'>AgentX Health</h1>", unsafe_allow_html=True)
-    st.image("https://cdn-icons-png.flaticon.com/512/2910/2910762.png", width=150)
     st.markdown("""
-    ### Automated Healthcare Provider Data Validation using Agentic AI
-    **Purpose:** Ensure accurate, up-to-date doctor information across healthcare directories.  
-    **Features:** Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.  
-    **Outcome:** Faster updates, reduced errors, improved patient trust.  
-    """)
+    <div style='text-align: center;'>
+        <h1 style='color: #2E86C1; font-size: 60px; font-weight: bold; margin-bottom: 5px;'>AgentX Health</h1>
+        <h4 style='color: #117A65; font-weight: normal; margin-top: 0;'>Automated Healthcare Provider Data Validation using Agentic AI</h4>
+        <img src='https://cdn-icons-png.flaticon.com/512/2910/2910762.png' width='120' style='margin-top: 15px;'/>
+    </div>
+    """, unsafe_allow_html=True)
+
+   st.markdown("""
+<h3 style='color:#2E86C1;'>Automated Healthcare Provider Data Validation using Agentic AI</h3>
+<p style='color:#117A65;'><b>Purpose:</b> Ensure accurate, up-to-date doctor information across healthcare directories.</p>
+<p style='color:#AF601A;'><b>Features:</b> Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.</p>
+<p style='color:#C0392B;'><b>Outcome:</b> Faster updates, reduced errors, improved patient trust.</p>
+""", unsafe_allow_html=True)
+
 
 # --- PROVIDER DASHBOARD ---
 elif page == "Provider Dashboard":
