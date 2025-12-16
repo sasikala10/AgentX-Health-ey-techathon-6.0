@@ -36,12 +36,67 @@ if 'logs' not in st.session_state:
 
 # --- HOME PAGE ---
 if page == "Home":
+   # --- HOME PAGE ---
+if page == "Home":
    st.markdown("""
-    <div style='text-align: center;'>
-        <h1 style='color: #2E86C1; font-size: 60px; font-weight: bold; margin-bottom: 5px;'>AgentX Health</h1>
-        <h4 style='color: #117A65; font-weight: normal; margin-top: 0;'>Automated Healthcare Provider Data Validation using Agentic AI</h4>
-        <img src='https://cdn-icons-png.flaticon.com/512/2910/2910762.png' width='120' style='margin-top: 15px;'/>
-    </div>
+    <style>
+    /* Shake animation on click */
+    @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
+    .shake:hover {
+        animation: shake 0.5s;
+        animation-iteration-count: 1;
+    }
+
+    .title {
+        color: #2E86C1;
+        font-size: 60px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .subtitle {
+        color: #117A65;
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+    }
+
+    .section {
+        font-size: 20px;
+        margin: 10px 0px;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .purpose { background-color: #28a745; }
+    .features { background-color: #ffc107; color: black; }
+    .outcome { background-color: #dc3545; }
+    </style>
+
+    <div class="title shake">AgentX Health</div>
+    <div class="subtitle shake">Automated Healthcare Provider Data Validation using Agentic AI</div>
+
+    <div class="section purpose shake">Purpose: Ensure accurate, up-to-date doctor information across healthcare directories.</div>
+    <div class="section features shake">Features: Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.</div>
+    <div class="section outcome shake">Outcome: Faster updates, reduced errors, improved patient trust.</div>
     """, unsafe_allow_html=True)
 
    st.markdown("""
