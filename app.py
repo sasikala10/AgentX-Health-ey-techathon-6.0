@@ -37,10 +37,12 @@ if 'logs' not in st.session_state:
 # --- HOME PAGE ---
 
    # --- HOME PAGE ---
+
+    # --- HOME PAGE ---
 if page == "Home":
-   st.markdown("""
+    st.markdown("""
     <style>
-    /* Shake animation on click */
+    /* Shake animation on hover */
     @keyframes shake {
         0% { transform: translate(1px, 1px) rotate(0deg); }
         10% { transform: translate(-1px, -2px) rotate(-1deg); }
@@ -60,9 +62,14 @@ if page == "Home":
         animation-iteration-count: 1;
     }
 
+    body {
+        background: linear-gradient(to right, #E0EAFC, #CFDEF3);
+        font-family: Arial, sans-serif;
+    }
+
     .title {
         color: #2E86C1;
-        font-size: 60px;
+        font-size: 70px;
         font-weight: bold;
         text-align: center;
         margin-bottom: 10px;
@@ -71,33 +78,46 @@ if page == "Home":
 
     .subtitle {
         color: #117A65;
-        font-size: 28px;
+        font-size: 30px;
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         cursor: pointer;
     }
 
     .section {
-        font-size: 20px;
-        margin: 10px 0px;
-        padding: 10px;
-        border-radius: 10px;
+        font-size: 22px;
+        margin: 15px auto;
+        padding: 15px;
+        border-radius: 15px;
         font-weight: bold;
-        color: white;
+        text-align: center;
+        max-width: 900px;
+        cursor: pointer;
     }
 
-    .purpose { background-color: #28a745; }
+    .purpose { background-color: #28a745; color: white; }
     .features { background-color: #ffc107; color: black; }
-    .outcome { background-color: #dc3545; }
+    .outcome { background-color: #dc3545; color: white; }
+
+    .icon {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 150px;
+        margin-bottom: 30px;
+    }
     </style>
 
     <div class="title shake">AgentX Health</div>
     <div class="subtitle shake">Automated Healthcare Provider Data Validation using Agentic AI</div>
 
+    <img src='https://cdn-icons-png.flaticon.com/512/2910/2910762.png' class='icon'/>
+
     <div class="section purpose shake">Purpose: Ensure accurate, up-to-date doctor information across healthcare directories.</div>
     <div class="section features shake">Features: Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.</div>
     <div class="section outcome shake">Outcome: Faster updates, reduced errors, improved patient trust.</div>
     """, unsafe_allow_html=True)
+
 
    st.markdown("""
 <h3 style='color:#2E86C1;'>Automated Healthcare Provider Data Validation using Agentic AI</h3>
