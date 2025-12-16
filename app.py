@@ -36,7 +36,7 @@ if 'logs' not in st.session_state:
 
 # --- HOME PAGE ---
 if page == "Home":
-    st.markdown("""
+   st.markdown("""
     <div style='text-align: center;'>
         <h1 style='color: #2E86C1; font-size: 60px; font-weight: bold; margin-bottom: 5px;'>AgentX Health</h1>
         <h4 style='color: #117A65; font-weight: normal; margin-top: 0;'>Automated Healthcare Provider Data Validation using Agentic AI</h4>
