@@ -15,7 +15,7 @@ page = st.sidebar.radio("Go to", ["Home", "Provider Dashboard", "Validation Simu
 
 # --- Sample Doctor Data with Image URLs ---
 doctor_data = [
-    {"name": "Dr. A Kumar", "specialty": "Cardiology", "phone":"9876543210","address":"Chennai","image":"https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg"},
+    {"name": "Dr. A Kumar", "specialty": "Cardiology", "phone":"9876543210","address":"Chennai","image":"https://img.freepik.com/premium-photo/portrait-handsome-young-doctor-standing-against-white-background-created-with-generative-ai_762026-44070.jpg"},
     {"name": "Dr. S Mehta", "specialty": "Dermatology", "phone":"9876543211","address":"Bengaluru","image":"https://i.ibb.co/0Bgk6K5/dr2.png"},
     {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"https://i.ibb.co/Y8v7Zz3/dr3.png"},
     {"name": "Dr. L Sharma", "specialty": "Orthopedics", "phone":"9876543213","address":"Mumbai","image":"https://i.ibb.co/MBJ2gVQ/dr4.png"},
