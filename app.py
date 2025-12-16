@@ -16,13 +16,13 @@ page = st.sidebar.radio("Go to", ["Home", "Provider Dashboard", "Validation Simu
 # --- Sample Doctor Data with Image URLs ---
 doctor_data = [
     {"name": "Dr. A Kumar", "specialty": "Cardiology", "phone":"9876543210","address":"Chennai","image":"https://img.freepik.com/premium-photo/portrait-handsome-young-doctor-standing-against-white-background-created-with-generative-ai_762026-44070.jpg"},
-    {"name": "Dr. S Mehta", "specialty": "Dermatology", "phone":"9876543211","address":"Bengaluru","image":"https://i.ibb.co/0Bgk6K5/dr2.png"},
-    {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"https://i.ibb.co/Y8v7Zz3/dr3.png"},
-    {"name": "Dr. L Sharma", "specialty": "Orthopedics", "phone":"9876543213","address":"Mumbai","image":"https://i.ibb.co/MBJ2gVQ/dr4.png"},
-    {"name": "Dr. N Verma", "specialty": "Pediatrics", "phone":"9876543214","address":"Delhi","image":"https://i.ibb.co/6XKJZK6/dr5.png"},
-    {"name": "Dr. P Singh", "specialty": "Oncology", "phone":"9876543215","address":"Kolkata","image":"https://i.ibb.co/B6k4w8d/dr6.png"},
-    {"name": "Dr. K Rao", "specialty": "ENT", "phone":"9876543216","address":"Pune","image":"https://i.ibb.co/fC0KqZs/dr7.png"},
-    {"name": "Dr. M Das", "specialty": "Gynecology", "phone":"9876543217","address":"Jaipur","image":"https://i.ibb.co/x1BxzJf/dr8.png"}
+    {"name": "Dr. S Mehta", "specialty": "Dermatology", "phone":"9876543211","address":"Bengaluru","image":"https://th.bing.com/th/id/R.256ff89b8455578cb07f46a207a4d6ae?rik=wamzqu6ozFnjjw&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f210000%2fvelka%2fdoctor-1490804643Rfi.jpg&ehk=xVsfwkQ4RsL0lPNklpn0uYssY%2fJJqHho%2bhw1KPmGMXU%3d&risl=&pid=ImgRaw&r=0"},
+    {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"https://as2.ftcdn.net/v2/jpg/06/46/17/19/1000_F_646171981_LhX2Z9Us0c7pSIcfvzgRkZeQIzsuuLNa.jpg"},
+    {"name": "Dr. L Sharma", "specialty": "Orthopedics", "phone":"9876543213","address":"Mumbai","image":"https://thumbs.dreamstime.com/z/portrait-medical-doctor-clipboard-stethoscope-isolated-white-151729203.jpg"},
+    {"name": "Dr. N Rithika", "specialty": "Pediatrics", "phone":"9876543214","address":"Delhi","image":"https://img.freepik.com/premium-photo/portrait-young-beautiful-smiling-indian-female-doctor-standing-isolated-background_1025753-91569.jpg?w=360"},
+    {"name": "Dr. P  Preetha Singh", "specialty": "Oncology", "phone":"9876543215","address":"Kolkata","image":"https://img.freepik.com/premium-photo/indian-doctor-wearing-white-coat-with-stethoscope_85574-3676.jpg"},
+    {"name": "Dr. K Rao", "specialty": "ENT", "phone":"9876543216","address":"Pune","image":"https://media.istockphoto.com/id/177373093/photo/indian-male-doctor.jpg?s=612x612&w=0&k=20&c=5FkfKdCYERkAg65cQtdqeO_D0JMv6vrEdPw3mX1Lkfg="},
+    {"name": "Dr. M Das", "specialty": "Gynecology", "phone":"9876543217","address":"Jaipur","image":"https://as1.ftcdn.net/v2/jpg/00/47/00/44/1000_F_47004476_SYtxJxdbrzsVkTGMB0RGhomIKlnzLsSe.jpg"}
 ]
 
 # Convert to DataFrame in session_state
