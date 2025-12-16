@@ -75,7 +75,7 @@ elif page == "Provider Dashboard":
                 st.markdown(f"{doc['specialty']}")
                 # Color-coded status
                 status = doc['Validation Status']
-                color = "#d4edda" if status=="Verified" else "#fff3cd" if status=="Needs Review" else "#f8d7da"
+                color = "#28a745" if status=="Verified" else "#ffc107" if status=="Needs Review" else "#dc3545"
                 st.markdown(f"<div style='background-color:{color}; padding:5px; text-align:center;'>{status}</div>", unsafe_allow_html=True)
 
 # --- VALIDATION SIMULATION ---
