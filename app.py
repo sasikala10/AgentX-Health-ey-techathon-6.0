@@ -17,11 +17,11 @@ page = st.sidebar.radio("Go to", ["Home", "Provider Dashboard", "Validation Simu
 doctor_data = [
     {"name": "Dr. A Kumar", "specialty": "Cardiology", "phone":"9876543210","address":"Chennai","image":"https://img.freepik.com/premium-photo/portrait-handsome-young-doctor-standing-against-white-background-created-with-generative-ai_762026-44070.jpg"},
     {"name": "Dr. S Mehta", "specialty": "Dermatology", "phone":"9876543211","address":"Bengaluru","image":"https://th.bing.com/th/id/R.256ff89b8455578cb07f46a207a4d6ae?rik=wamzqu6ozFnjjw&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f210000%2fvelka%2fdoctor-1490804643Rfi.jpg&ehk=xVsfwkQ4RsL0lPNklpn0uYssY%2fJJqHho%2bhw1KPmGMXU%3d&risl=&pid=ImgRaw&r=0"},
-    {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"https://as2.ftcdn.net/v2/jpg/06/46/17/19/1000_F_646171981_LhX2Z9Us0c7pSIcfvzgRkZeQIzsuuLNa.jpg"},
+    {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"https://media.istockphoto.com/photos/happy-indian-doctor-picture-id501700964?k=6&m=501700964&s=612x612&w=0&h=OCLyccpgSd0t3qPhlOGI-lpimvvuv7-GHB6ECHAzKsM="},
     {"name": "Dr. L Sharma", "specialty": "Orthopedics", "phone":"9876543213","address":"Mumbai","image":"https://thumbs.dreamstime.com/z/portrait-medical-doctor-clipboard-stethoscope-isolated-white-151729203.jpg"},
     {"name": "Dr. N Rithika", "specialty": "Pediatrics", "phone":"9876543214","address":"Delhi","image":"https://img.freepik.com/premium-photo/portrait-young-beautiful-smiling-indian-female-doctor-standing-isolated-background_1025753-91569.jpg?w=360"},
     {"name": "Dr. P  Preetha Singh", "specialty": "Oncology", "phone":"9876543215","address":"Kolkata","image":"https://img.freepik.com/premium-photo/indian-doctor-wearing-white-coat-with-stethoscope_85574-3676.jpg"},
-    {"name": "Dr. K Rao", "specialty": "ENT", "phone":"9876543216","address":"Pune","image":"https://media.istockphoto.com/id/177373093/photo/indian-male-doctor.jpg?s=612x612&w=0&k=20&c=5FkfKdCYERkAg65cQtdqeO_D0JMv6vrEdPw3mX1Lkfg="},
+    {"name": "Dr. K Rao", "specialty": "ENT", "phone":"9876543216","address":"Pune","image":"https://amjmed.org/wp-content/uploads/2016/02/smiling-Indian-doctor-stock.jpg"},
     {"name": "Dr. M Das", "specialty": "Gynecology", "phone":"9876543217","address":"Jaipur","image":"https://as1.ftcdn.net/v2/jpg/00/47/00/44/1000_F_47004476_SYtxJxdbrzsVkTGMB0RGhomIKlnzLsSe.jpg"}
 ]
 
