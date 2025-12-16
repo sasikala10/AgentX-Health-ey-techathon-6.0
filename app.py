@@ -35,7 +35,7 @@ if 'logs' not in st.session_state:
     st.session_state.logs = []
 
 # --- HOME PAGE ---
-if page == "Home":
+
    # --- HOME PAGE ---
 if page == "Home":
    st.markdown("""
