@@ -2,39 +2,31 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import time
+from PIL import Image
 
-# Page configuration
-st.set_page_config(page_title="AgentX Health – EY Techathon 6.0", layout="wide")
+# --- Page configuration ---
+st.set_page_config(page_title="AgentX Health – EY Techathon", layout="wide")
 
 # --- Sidebar Navigation ---
 st.sidebar.title("AgentX Health")
 page = st.sidebar.radio("Go to", ["Home", "Provider Dashboard", "Validation Simulation", "Analytics", "Audit Logs"])
 
-# --- Sample Provider Data ---
-data = {
-    "Doctor Name": [
-        "Dr. A Kumar", "Dr. S Mehta", "Dr. R Iyer", "Dr. L Sharma",
-        "Dr. N Verma", "Dr. P Singh", "Dr. K Rao", "Dr. M Das"
-    ],
-    "Specialty": [
-        "Cardiology", "Dermatology", "Neurology", "Orthopedics",
-        "Pediatrics", "Oncology", "ENT", "Gynecology"
-    ],
-    "Phone": [
-        "9876543210","9876543211","9876543212","9876543213",
-        "9876543214","9876543215","9876543216","9876543217"
-    ],
-    "Address": [
-        "Chennai", "Bengaluru", "Hyderabad", "Mumbai",
-        "Delhi", "Kolkata", "Pune", "Jaipur"
-    ],
-    "Validation Status": [
-        "Verified", "Needs Review", "Verified", "Error",
-        "Verified", "Needs Review", "Verified", "Error"
-    ]
-}
+# --- Sample Doctor Data with Images ---
+doctor_data = [
+    {"name": "Dr. A Kumar", "specialty": "Cardiology", "phone":"9876543210","address":"Chennai","image":"dr_a_kumar.png"},
+    {"name": "Dr. S Mehta", "specialty": "Dermatology", "phone":"9876543211","address":"Bengaluru","image":"dr_s_mehta.png"},
+    {"name": "Dr. R Iyer", "specialty": "Neurology", "phone":"9876543212","address":"Hyderabad","image":"dr_r_iyer.png"},
+    {"name": "Dr. L Sharma", "specialty": "Orthopedics", "phone":"9876543213","address":"Mumbai","image":"dr_l_sharma.png"},
+    {"name": "Dr. N Verma", "specialty": "Pediatrics", "phone":"9876543214","address":"Delhi","image":"dr_n_verma.png"},
+    {"name": "Dr. P Singh", "specialty": "Oncology", "phone":"9876543215","address":"Kolkata","image":"dr_p_singh.png"},
+    {"name": "Dr. K Rao", "specialty": "ENT", "phone":"9876543216","address":"Pune","image":"dr_k_rao.png"},
+    {"name": "Dr. M Das", "specialty": "Gynecology", "phone":"9876543217","address":"Jaipur","image":"dr_m_das.png"}
+]
 
-df = pd.DataFrame(data)
+# Convert to DataFrame
+if 'df' not in st.session_state:
+    st.session_state.df = pd.DataFrame(doctor_data)
+    st.session_state.df['Validation Status'] = np.random.choice(["Verified","Needs Review","Error"], len(doctor_data), p=[0.6,0.3,0.1])
 
 # --- Audit Logs ---
 if 'logs' not in st.session_state:
@@ -42,90 +34,81 @@ if 'logs' not in st.session_state:
 
 # --- HOME PAGE ---
 if page == "Home":
-    st.title("AgentX Health – EY Techathon 6.0")
+    st.markdown("""
+    <h1 style='text-align: center; color: #2E86C1; font-size:60px;'>
+    AgentX Health
+    </h1>
+    """, unsafe_allow_html=True)
     st.image("https://cdn-icons-png.flaticon.com/512/2910/2910762.png", width=150)
     st.markdown("""
     ### Automated Healthcare Provider Data Validation using Agentic AI
-
     **Purpose:** Ensure accurate, up-to-date doctor information across healthcare directories.  
     **Features:** Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.  
-    **Outcome:** Faster updates, reduced errors, improved patient trust.
-
-    **EY Techathon 6.0 Submission**
+    **Outcome:** Faster updates, reduced errors, improved patient trust.  
     """)
-    st.success("Click on the sidebar to navigate through the prototype pages!")
 
 # --- PROVIDER DASHBOARD ---
 elif page == "Provider Dashboard":
     st.title("Provider Directory Dashboard")
     st.markdown("Filter and explore provider validation status:")
-
-    # Filters
-    specialty_filter = st.multiselect("Select Specialty", df['Specialty'].unique())
-    status_filter = st.multiselect("Select Status", df['Validation Status'].unique())
     
-    filtered_df = df.copy()
+    specialty_filter = st.multiselect("Select Specialty", st.session_state.df['specialty'].unique())
+    status_filter = st.multiselect("Select Status", st.session_state.df['Validation Status'].unique())
+    
+    df_filtered = st.session_state.df.copy()
     if specialty_filter:
-        filtered_df = filtered_df[filtered_df['Specialty'].isin(specialty_filter)]
+        df_filtered = df_filtered[df_filtered['specialty'].isin(specialty_filter)]
     if status_filter:
-        filtered_df = filtered_df[filtered_df['Validation Status'].isin(status_filter)]
-
-    # Color-coded table
-    def color_status(val):
-        if val=="Verified":
-            return 'background-color: #d4edda; color: black'
-        elif val=="Needs Review":
-            return 'background-color: #fff3cd; color: black'
-        else:
-            return 'background-color: #f8d7da; color: black'
-
-    st.dataframe(filtered_df.style.applymap(color_status, subset=['Validation Status']), height=400)
+        df_filtered = df_filtered[df_filtered['Validation Status'].isin(status_filter)]
+    
+    # Display doctors in grid with images
+    for i in range(0, len(df_filtered), 4):
+        cols = st.columns(4)
+        for j, idx in enumerate(range(i, min(i+4, len(df_filtered)))):
+            with cols[j]:
+                doc = df_filtered.iloc[idx]
+                img = Image.open(doc['image'])
+                st.image(img, width=100)
+                st.markdown(f"**{doc['name']}**")
+                st.markdown(f"{doc['specialty']}")
+                # Color-coded status
+                status = doc['Validation Status']
+                color = "#d4edda" if status=="Verified" else "#fff3cd" if status=="Needs Review" else "#f8d7da"
+                st.markdown(f"<div style='background-color:{color}; padding:5px; text-align:center;'>{status}</div>", unsafe_allow_html=True)
 
 # --- VALIDATION SIMULATION ---
 elif page == "Validation Simulation":
     st.title("Simulate New Provider Validation")
-    st.markdown("Enter new provider details and see Agentic AI validation in action!")
-
     with st.form(key="validation_form"):
         name = st.text_input("Doctor Name")
-        specialty = st.selectbox("Specialty", ["Cardiology","Dermatology","Neurology","Orthopedics","Pediatrics","Oncology","ENT","Gynecology"])
+        specialty = st.selectbox("Specialty", st.session_state.df['specialty'].unique())
         phone = st.text_input("Phone Number")
         address = st.text_input("Address")
         submit_button = st.form_submit_button("Validate")
-
+    
     if submit_button:
         st.info("Agentic AI validating...")
         time.sleep(1.5)
-        # Randomly assign status
         status = np.random.choice(["Verified","Needs Review","Error"], p=[0.6,0.3,0.1])
         st.success(f"{name} ({specialty}) validated: {status}")
-        st.balloons() if status=="Verified" else None
-        # Append to logs
-        st.session_state.logs.append({"Doctor": name, "Specialty": specialty, "Status": status})
-        # Also add to main df for dashboard display
-        df.loc[len(df)] = [name, specialty, phone, address, status]
+        if status=="Verified": st.balloons()
+        # Add to df & logs
+        new_doc = {"name":name, "specialty":specialty, "phone":phone, "address":address, "image":"https://cdn-icons-png.flaticon.com/512/2910/2910762.png", "Validation Status":status}
+        st.session_state.df = pd.concat([st.session_state.df, pd.DataFrame([new_doc])], ignore_index=True)
+        st.session_state.logs.append(new_doc)
 
-# --- ANALYTICS / INSIGHTS ---
+# --- ANALYTICS ---
 elif page == "Analytics":
-    st.title("Validation Analytics Dashboard")
-    st.markdown("Summary of provider validation status")
-    # Status counts
-    status_counts = df['Validation Status'].value_counts()
-    st.subheader("Validation Status Distribution")
+    st.title("Validation Analytics")
+    status_counts = st.session_state.df['Validation Status'].value_counts()
     st.bar_chart(status_counts)
-
     st.subheader("Doctors by Specialty")
-    specialty_counts = df['Specialty'].value_counts()
-    st.bar_chart(specialty_counts)
-
-    st.subheader("Pie Chart - Validation Status")
-    st.pyplot(df['Validation Status'].value_counts().plot.pie(autopct='%1.1f%%', figsize=(4,4)).figure)
+    st.bar_chart(st.session_state.df['specialty'].value_counts())
 
 # --- AUDIT LOGS ---
 elif page == "Audit Logs":
-    st.title("Compliance / Audit Logs")
+    st.title("Audit Logs")
     if st.session_state.logs:
-        logs_df = pd.DataFrame(st.session_state.logs)
-        st.dataframe(logs_df)
+        st.dataframe(pd.DataFrame(st.session_state.logs))
     else:
-        st.info("No logs yet. Simulate some validations!")
+        st.info("No logs yet. Run some validation simulations!")
