@@ -119,7 +119,7 @@ if page == "Home":
     """, unsafe_allow_html=True)
 
 
-   st.markdown("""
+    st.markdown("""
 <h3 style='color:#2E86C1;'>Automated Healthcare Provider Data Validation using Agentic AI</h3>
 <p style='color:#117A65;'><b>Purpose:</b> Ensure accurate, up-to-date doctor information across healthcare directories.</p>
 <p style='color:#AF601A;'><b>Features:</b> Multi-page dashboard, color-coded validation status, AI simulation, analytics, audit logs.</p>
