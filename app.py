@@ -162,9 +162,9 @@ with col3:
     """, unsafe_allow_html=True)
 
 
-    st.markdown("<br>", unsafe_allow_html=True)
-    if st.button("🚀 Get Started"):
-        st.session_state.page = "Provider Dashboard"
+st.markdown("<br>", unsafe_allow_html=True)
+if st.button("🚀 Get Started"):
+    st.session_state.page = "Provider Dashboard"
 
 # ================= PROVIDER DASHBOARD =================
 elif st.session_state.page == "Provider Dashboard":
