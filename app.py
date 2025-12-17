@@ -111,16 +111,16 @@ if st.session_state.page == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown(
+st.markdown(
         "<div style='text-align:center;margin-top:15px;'>"
         "<img src='https://cdn-icons-png.flaticon.com/512/387/387561.png' "
         "width='160' class='doctor-img'/></div>",
         unsafe_allow_html=True
     )
 
-    st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.markdown("""
