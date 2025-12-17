@@ -20,7 +20,7 @@ doctor_data = [
         "specialty": "Cardiology",
         "phone": "9876543201",
         "address": "Chennai",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+        "image": "https://t4.ftcdn.net/jpg/06/57/67/29/360_F_657672908_ZxcQh9FCv59fK7AypxvHiEgoiGFDfQTc.jpg"
     },
     {
         "name": "Dr. Sneha Mehta",
@@ -34,7 +34,7 @@ doctor_data = [
         "specialty": "Neurology",
         "phone": "9876543203",
         "address": "Bangalore",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+        "image": "https://img.freepik.com/premium-photo/handsome-doctor-isolated_118124-72755.jpg"
     },
     {
         "name": "Dr. Pooja Sharma",
@@ -48,7 +48,7 @@ doctor_data = [
         "specialty": "Pediatrics",
         "phone": "9876543205",
         "address": "Hyderabad",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/User_icon-cp.svg"
+        "image": "https://media.istockphoto.com/id/542947644/photo/handsome-medical-doctor.jpg?s=170667a&w=0&k=20&c=sQ19wL8ETdD7BtzVBez_KmlQ2_4fq_7y10W_oIW6nKk="
     },
     {
         "name": "Dr. Kavya Reddy",
@@ -62,7 +62,7 @@ doctor_data = [
         "specialty": "Oncology",
         "phone": "9876543207",
         "address": "Gurgaon",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png"
+        "image": "https://img.freepik.com/premium-photo/young-doctor-with-arms-crossed_251136-25936.jpg"
     },
     {
         "name": "Dr. Neha Patel",
@@ -76,7 +76,7 @@ doctor_data = [
         "specialty": "Urology",
         "phone": "9876543209",
         "address": "Kochi",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_avatar.png"
+        "image": "https://img.freepik.com/premium-photo/handsome-young-male-doctor-background_488220-44484.jpg"
     },
     {
         "name": "Dr. Priya Banerjee",
