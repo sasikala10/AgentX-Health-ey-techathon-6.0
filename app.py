@@ -225,3 +225,130 @@ elif st.session_state.page == "Provider Dashboard":
                 {doc['Validation Status']}
                 </div>
                 """, unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    nav1, nav2, nav3 = st.columns(3)
+
+    with nav1:
+        if st.button("🧪 Validation Simulation"):
+            st.session_state.page = "Validation Simulation"
+
+    with nav2:
+        if st.button("📊 Analytics"):
+            st.session_state.page = "Analytics"
+
+    with nav3:
+        if st.button("🧾 Audit Logs"):
+            st.session_state.page = "Audit Logs"
+            elif st.session_state.page == "Validation Simulation":
+
+    st.markdown("""
+    <h1 class="snake"
+    style="text-align:center;
+    font-size:44px;
+    color:#17A589;
+    text-shadow:0 0 15px rgba(23,165,137,0.8);">
+    Validation Simulation
+    </h1>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class="card" style="background:#E8F8F5;">
+    🤖 <b>Agentic AI Validation Flow</b><br><br>
+    ✔ License verification<br>
+    ✔ Phone & address cross-check<br>
+    ✔ Duplicate detection<br>
+    ✔ Confidence score generation
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    progress = st.progress(0)
+    status_text = st.empty()
+
+    for i in range(1, 6):
+        status_text.markdown(f"🔍 Running validation step {i}...")
+        time.sleep(0.5)
+        progress.progress(i * 20)
+
+    status_text.markdown("✅ Validation Completed Successfully")
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if st.button("⬅ Back to Dashboard"):
+        st.session_state.page = "Provider Dashboard"
+elif st.session_state.page == "Analytics":
+
+    st.markdown("""
+    <h1 class="snake"
+    style="text-align:center;
+    font-size:44px;
+    color:#AF7AC5;
+    text-shadow:0 0 15px rgba(175,122,197,0.8);">
+    Analytics Dashboard
+    </h1>
+    """, unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.markdown("""
+        <div class="card" style="background:#F4ECF7;">
+        📈 <b>Validation Status Distribution</b>
+        </div>
+        """, unsafe_allow_html=True)
+
+        status_counts = st.session_state.df['Validation Status'].value_counts()
+        st.bar_chart(status_counts)
+
+    with col2:
+        st.markdown("""
+        <div class="card" style="background:#EBDEF0;">
+        🧠 <b>Specialty-wise Provider Count</b>
+        </div>
+        """, unsafe_allow_html=True)
+
+        specialty_counts = st.session_state.df['specialty'].value_counts()
+        st.line_chart(specialty_counts)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if st.button("⬅ Back to Dashboard"):
+        st.session_state.page = "Provider Dashboard"
+        elif st.session_state.page == "Audit Logs":
+
+    st.markdown("""
+    <h1 class="snake"
+    style="text-align:center;
+    font-size:44px;
+    color:#D35400;
+    text-shadow:0 0 15px rgba(211,84,0,0.8);">
+    Audit Logs
+    </h1>
+    """, unsafe_allow_html=True)
+
+    logs = pd.DataFrame({
+        "Timestamp": pd.date_range(end=pd.Timestamp.now(), periods=8),
+        "Action": [
+            "Doctor profile verified",
+            "Phone number updated",
+            "Address mismatch detected",
+            "License revalidated",
+            "Duplicate entry flagged",
+            "Manual review requested",
+            "Profile approved",
+            "Audit export generated"
+        ],
+        "Status": np.random.choice(["Success", "Warning", "Error"], 8)
+    })
+
+    st.dataframe(logs, use_container_width=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if st.button("⬅ Back to Dashboard"):
+        st.session_state.page = "Provider Dashboard"
+
+
+
