@@ -15,15 +15,78 @@ if 'page' not in st.session_state:
 
 # --- Sample Doctor Data ---
 doctor_data = [
-    {"name": f"Dr. {i} Name",
-     "specialty": np.random.choice([
-         "Cardiology","Dermatology","Neurology","Orthopedics","Pediatrics",
-         "Oncology","ENT","Gynecology","Urology","Psychiatry"]),
-     "phone": f"98765432{i:02}",
-     "address": f"City {i}",
-     "image": "https://cdn-icons-png.flaticon.com/512/387/387561.png"}
-    for i in range(1, 11)
+    {
+        "name": "Dr. Arun Kumar",
+        "specialty": "Cardiology",
+        "phone": "9876543201",
+        "address": "Chennai",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+    },
+    {
+        "name": "Dr. Sneha Mehta",
+        "specialty": "Dermatology",
+        "phone": "9876543202",
+        "address": "Mumbai",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+    },
+    {
+        "name": "Dr. Rajesh Iyer",
+        "specialty": "Neurology",
+        "phone": "9876543203",
+        "address": "Bangalore",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+    },
+    {
+        "name": "Dr. Pooja Sharma",
+        "specialty": "Orthopedics",
+        "phone": "9876543204",
+        "address": "Delhi",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Generic_profile_picture.png"
+    },
+    {
+        "name": "Dr. Anil Verma",
+        "specialty": "Pediatrics",
+        "phone": "9876543205",
+        "address": "Hyderabad",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/User_icon-cp.svg"
+    },
+    {
+        "name": "Dr. Kavya Reddy",
+        "specialty": "Gynecology",
+        "phone": "9876543206",
+        "address": "Vijayawada",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"
+    },
+    {
+        "name": "Dr. Rohit Malhotra",
+        "specialty": "Oncology",
+        "phone": "9876543207",
+        "address": "Gurgaon",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png"
+    },
+    {
+        "name": "Dr. Neha Patel",
+        "specialty": "ENT",
+        "phone": "9876543208",
+        "address": "Ahmedabad",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg"
+    },
+    {
+        "name": "Dr. Suresh Nair",
+        "specialty": "Urology",
+        "phone": "9876543209",
+        "address": "Kochi",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_avatar.png"
+    },
+    {
+        "name": "Dr. Priya Banerjee",
+        "specialty": "Psychiatry",
+        "phone": "9876543210",
+        "address": "Kolkata",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Iconic_image_placeholder.png"
+    }
 ]
+
 
 if 'df' not in st.session_state:
     st.session_state.df = pd.DataFrame(doctor_data)
