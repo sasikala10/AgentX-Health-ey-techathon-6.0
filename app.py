@@ -473,7 +473,7 @@ elif st.session_state.page == "Validation Simulation":
 
 
     if st.button("⬅ Back to Dashboard"):
-        st.session_state.page = "Home"
+        st.session_state.page = "Provider Dashboard"
 
 elif st.session_state.page == "Analytics":
 
