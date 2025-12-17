@@ -76,14 +76,14 @@ doctor_data = [
         "specialty": "Urology",
         "phone": "9876543209",
         "address": "Kochi",
-        "image": "https://img.freepik.com/premium-photo/handsome-young-male-doctor-background_488220-44484.jpg"
+        "image": "https://img.freepik.com/premium-photo/free-photo-handsome-indian-doctor-man-white-medical-gown-with-stethoscope_1221994-2548.jpg?w=1060"
     },
     {
         "name": "Dr. Priya Banerjee",
         "specialty": "Psychiatry",
         "phone": "9876543210",
         "address": "Kolkata",
-        "image": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA2L3Jhd3BpeGVsX29mZmljZV8zN19hX3Bob3RvX29mX2FfZmVtYWxlX2luZGlhbl9kb2N0b3Jfc21pbGluZ19mb19iNzk1NDhiNC1mYTIyLTQ4NTktOTFlMy1kZmM1ODIxNjljZWNfMS5qcGc.jpg"
+        "image": "https://i.pinimg.com/736x/c5/a3/90/c5a3904b38eb241dd03dd30889599dc4.jpg"
     }
 ]
 
