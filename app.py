@@ -20,14 +20,14 @@ doctor_data = [
         "specialty": "Cardiology",
         "phone": "9876543201",
         "address": "Chennai",
-        "image": "https://t4.ftcdn.net/jpg/06/57/67/29/360_F_657672908_ZxcQh9FCv59fK7AypxvHiEgoiGFDfQTc.jpg"
+        "image": "https://img.freepik.com/premium-photo/young-confident-indian-male-doctor_601128-2498.jpg?w=2000"
     },
     {
         "name": "Dr. Sneha Mehta",
         "specialty": "Dermatology",
         "phone": "9876543202",
         "address": "Mumbai",
-        "image": "https://img.freepik.com/premium-photo/woman-white-lab-coat-is-posing-photo_1262781-7688.jpg"
+        "image": "https://img.freepik.com/premium-photo/indian-female-doctor-portrait-south-indian-young-lady-doctor-holding-stethoscope-hand_527904-1841.jpg?w=740"
     },
     {
         "name": "Dr. Rajesh Iyer",
@@ -41,7 +41,7 @@ doctor_data = [
         "specialty": "Orthopedics",
         "phone": "9876543204",
         "address": "Delhi",
-        "image": "https://png.pngtree.com/png-vector/20240104/ourmid/pngtree-indian-female-medical-doctor-general-png-image_10944228.png"
+        "image": "https://thumbs.dreamstime.com/b/smiling-indian-doctor-woman-23239270.jpg?w=768"
     },
     {
         "name": "Dr. Anil Verma",
