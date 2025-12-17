@@ -12,11 +12,35 @@ st.set_page_config(page_title="AgentX Health – EY Techathon", layout="wide")
 # --- Session state ---
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
-    st.session_state.page = st.radio(
-    "Navigation",
-    ["Provider Dashboard", "Validation Simulation", "Analytics", "Audit Logs"],
-    horizontal=True
-)
+st.markdown("""
+<style>
+.nav-item {
+    font-size: 28px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: center;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: translateX(8px);
+    text-shadow: 0 0 12px rgba(0,0,0,0.35);
+}
+
+.nav-validate { color:#17A589; }
+.nav-analytics { color:#AF7AC5; }
+.nav-audit { color:#D35400; }
+
+/* remove button background */
+.stButton>button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 st.markdown("---")
 
@@ -298,19 +322,27 @@ elif st.session_state.page == "Provider Dashboard":
                 """, unsafe_allow_html=True)
     st.markdown("<br>", unsafe_allow_html=True)
 
+   
+   
     nav1, nav2, nav3 = st.columns(3)
 
     with nav1:
-        if st.button("🧪 Validation Simulation"):
-            st.session_state.page = "Validation Simulation"
+       if st.button("🧪 Validation Simulation"):
+          st.session_state.page = "Validation Simulation"
+       st.markdown("<div class='nav-item nav-validate'>Validation Simulation</div>", unsafe_allow_html=True)
 
     with nav2:
         if st.button("📊 Analytics"):
-            st.session_state.page = "Analytics"
+          st.session_state.page = "Analytics"
+        st.markdown("<div class='nav-item nav-analytics'>Analytics</div>", unsafe_allow_html=True)
 
     with nav3:
         if st.button("🧾 Audit Logs"):
-            st.session_state.page = "Audit Logs"
+          st.session_state.page = "Audit Logs"
+        st.markdown("<div class='nav-item nav-audit'>Audit Logs</div>", unsafe_allow_html=True)
+
+    st.markdown("---")
+
 elif st.session_state.page == "Validation Simulation":
 
     st.markdown("""
