@@ -12,6 +12,13 @@ st.set_page_config(page_title="AgentX Health – EY Techathon", layout="wide")
 # --- Session state ---
 if 'page' not in st.session_state:
     st.session_state.page = "Home"
+st.session_state.page = st.radio(
+    "Navigation",
+    ["Provider Dashboard", "Validation Simulation", "Analytics", "Audit Logs"],
+    horizontal=True
+)
+
+st.markdown("---")
 
 # --- Sample Doctor Data ---
 doctor_data = [
