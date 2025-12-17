@@ -48,7 +48,7 @@ doctor_data = [
         "specialty": "Pediatrics",
         "phone": "9876543205",
         "address": "Hyderabad",
-        "image": "https://media.istockphoto.com/id/542947644/photo/handsome-medical-doctor.jpg?s=170667a&w=0&k=20&c=sQ19wL8ETdD7BtzVBez_KmlQ2_4fq_7y10W_oIW6nKk="
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/026/375/249/small_2x/ai-generative-portrait-of-confident-male-doctor-in-white-coat-and-stethoscope-standing-with-arms-crossed-and-looking-at-camera-photo.jpg"
     },
     {
         "name": "Dr. Kavya Reddy",
@@ -62,7 +62,7 @@ doctor_data = [
         "specialty": "Oncology",
         "phone": "9876543207",
         "address": "Gurgaon",
-        "image": "https://img.freepik.com/premium-photo/young-doctor-with-arms-crossed_251136-25936.jpg"
+        "image": "https://img.freepik.com/premium-photo/image-young-man-doctor-dress-white-background_911078-16198.jpg"
     },
     {
         "name": "Dr. Neha Patel",
