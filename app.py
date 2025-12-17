@@ -8,41 +8,45 @@ import requests
 
 # --- Page configuration ---
 st.set_page_config(page_title="AgentX Health – EY Techathon", layout="wide")
-
-# --- Session state ---
-if 'page' not in st.session_state:
-    st.session_state.page = "Home"
+# --- Navigation CSS ---
 st.markdown("""
 <style>
-.nav-item {
-    font-size: 28px;
-    font-weight: 800;
+.top-nav button {
+    width: 100%;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 30px;
+    padding: 14px;
+    border: none;
     cursor: pointer;
-    text-align: center;
-    padding: 12px;
     transition: all 0.3s ease;
 }
 
-.nav-item:hover {
-    transform: translateX(8px);
-    text-shadow: 0 0 12px rgba(0,0,0,0.35);
+.top-nav button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 18px rgba(0,0,0,0.25);
 }
 
-.nav-validate { color:#17A589; }
-.nav-analytics { color:#AF7AC5; }
-.nav-audit { color:#D35400; }
+.nav-validate button {
+    background: linear-gradient(135deg, #17A589, #1ABC9C);
+    color: white;
+}
 
-/* remove button background */
-.stButton>button {
-    background: none;
-    border: none;
-    padding: 0;
+.nav-analytics button {
+    background: linear-gradient(135deg, #AF7AC5, #D2B4DE);
+    color: white;
+}
+
+.nav-audit button {
+    background: linear-gradient(135deg, #D35400, #F39C12);
+    color: white;
 }
 </style>
 """, unsafe_allow_html=True)
 
-
-st.markdown("---")
+# --- Session state ---
+if 'page' not in st.session_state:
+    st.session_state.page = "Home"
 
 # --- Sample Doctor Data ---
 doctor_data = [
@@ -326,28 +330,25 @@ elif st.session_state.page == "Provider Dashboard":
    
     nav1, nav2, nav3 = st.columns(3)
 
-    with nav1:
-        if st.markdown(
-        "<div class='nav-item nav-validate'>🧪 Validation Simulation</div>",
-        unsafe_allow_html=True
-    ):
-            st.session_state.page = "Validation Simulation"
+   with nav1:
+       st.markdown("<div class='top-nav nav-validate'>", unsafe_allow_html=True)
+       if st.button("🧪 Validation Simulation"):
+           st.session_state.page = "Validation Simulation"
+       st.markdown("</div>", unsafe_allow_html=True)
 
-    with nav2:
-        if st.markdown(
-        "<div class='nav-item nav-analytics'>📊 Analytics</div>",
-        unsafe_allow_html=True
-    ):
-            st.session_state.page = "Analytics"
+   with nav2:
+       st.markdown("<div class='top-nav nav-analytics'>", unsafe_allow_html=True)
+       if st.button("📊 Analytics"):
+           st.session_state.page = "Analytics"
+       st.markdown("</div>", unsafe_allow_html=True)
 
-    with nav3:
-        if st.markdown(
-        "<div class='nav-item nav-audit'>🧾 Audit Logs</div>",
-        unsafe_allow_html=True
-    ):
-            st.session_state.page = "Audit Logs"
+   with nav3:
+       st.markdown("<div class='top-nav nav-audit'>", unsafe_allow_html=True)
+       if st.button("🧾 Audit Logs"):
+           st.session_state.page = "Audit Logs"
+       st.markdown("</div>", unsafe_allow_html=True)
 
-    st.markdown("---")
+   st.markdown("---")
 
 
 elif st.session_state.page == "Validation Simulation":
