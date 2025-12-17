@@ -211,7 +211,7 @@ if st.session_state.page == "Home":
 
     st.markdown(
         "<div style='text-align:center;margin-top:15px;'>"
-        "<img src='https://cdn-icons-png.flaticon.com/512/387/387561.png' "
+        "<img src='https://chatgpt.com/backend-api/estuary/content?id=file_00000000c83c71fd9a56b47f1abc1142&ts=490548&p=fs&cid=1&sig=43d0a092956916ba40c20bc64f422008ef36fe9e4b38935a5c4a2f16a7996e76&v=0' "
         "width='160' class='doctor-img'/></div>",
         unsafe_allow_html=True
     )
@@ -444,7 +444,7 @@ elif st.session_state.page == "Validation Simulation":
             "specialty": specialty,
             "phone": phone,
             "address": address,
-            "image": "https://cdn-icons-png.flaticon.com/512/2910/2910762.png",
+            "image": "https://cdn-icons-png.flaticon.com/512/387/387561.png",
             "Validation Status": status
         }
         st.session_state.df = pd.concat(
