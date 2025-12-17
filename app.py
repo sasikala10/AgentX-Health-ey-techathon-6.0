@@ -123,28 +123,44 @@ if st.session_state.page == "Home":
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.markdown("""
-        <div class="card" style="background:#D4EFDF;">
-        🛡️<br><b>Accurate Doctor Data Validation</b><br><br>
-        Verify provider credentials with AI-powered precision.
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("""
+    <div class="card" style="background:#D4EFDF;">
+    🛡️<br>
+    <b>Accurate Doctor Data Validation</b><br><br>
+    ✔ AI-powered credential verification<br>
+    ✔ Cross-platform data consistency<br>
+    ✔ Compliance-ready provider records<br><br>
+    Verify healthcare provider credentials with AI-powered precision,
+    ensuring accuracy and regulatory compliance.
+    </div>
+    """, unsafe_allow_html=True)
 
-    with col2:
-        st.markdown("""
-        <div class="card" style="background:#FEF9E7;">
-        ⚙️<br><b>Intelligent Automation</b><br><br>
-        Faster updates and reduced errors through agentic AI workflows.
-        </div>
-        """, unsafe_allow_html=True)
+with col2:
+    st.markdown("""
+    <div class="card" style="background:#FEF9E7;">
+    ⚙️<br>
+    <b>Intelligent Automation</b><br><br>
+    ✔ Agentic AI workflows<br>
+    ✔ Reduced manual effort<br>
+    ✔ Faster validation cycles<br><br>
+    Automate complex validation processes to deliver faster updates
+    with fewer human errors.
+    </div>
+    """, unsafe_allow_html=True)
 
-    with col3:
-        st.markdown("""
-        <div class="card" style="background:#FADBD8;">
-        ❤️<br><b>Improved Patient Trust</b><br><br>
-        Build confidence with verified provider information.
-        </div>
-        """, unsafe_allow_html=True)
+with col3:
+    st.markdown("""
+    <div class="card" style="background:#FADBD8;">
+    ❤️<br>
+    <b>Improved Patient Trust</b><br><br>
+    ✔ Verified provider profiles<br>
+    ✔ Accurate contact details<br>
+    ✔ Reliable healthcare access<br><br>
+    Build confidence and trust with verified, up-to-date provider
+    information patients can rely on.
+    </div>
+    """, unsafe_allow_html=True)
+
 
     st.markdown("<br>", unsafe_allow_html=True)
     if st.button("🚀 Get Started"):
