@@ -111,60 +111,60 @@ if st.session_state.page == "Home":
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown(
+    st.markdown(
         "<div style='text-align:center;margin-top:15px;'>"
         "<img src='https://cdn-icons-png.flaticon.com/512/387/387561.png' "
         "width='160' class='doctor-img'/></div>",
         unsafe_allow_html=True
     )
 
-st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns(3)
+    col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.markdown("""
-    <div class="card" style="background:#D4EFDF;">
-    🛡️<br>
-    <b>Accurate Doctor Data Validation</b><br><br>
-    ✔ AI-powered credential verification<br>
-    ✔ Cross-platform data consistency<br>
-    ✔ Compliance-ready provider records<br><br>
-    Verify healthcare provider credentials with AI-powered precision,
-    ensuring accuracy and regulatory compliance.
-    </div>
-    """, unsafe_allow_html=True)
+    with col1:
+        st.markdown("""
+        <div class="card" style="background:#D4EFDF;">
+    🛡️  <br>
+        <b>Accurate Doctor Data Validation</b><br><br>
+        ✔ AI-powered credential verification<br>
+        ✔ Cross-platform data consistency<br>
+        ✔ Compliance-ready provider records<br><br>
+        Verify healthcare provider credentials with AI-powered precision,
+        ensuring accuracy and regulatory compliance.
+        </div>
+        """, unsafe_allow_html=True)
 
-with col2:
-    st.markdown("""
-    <div class="card" style="background:#FEF9E7;">
-    ⚙️<br>
-    <b>Intelligent Automation</b><br><br>
-    ✔ Agentic AI workflows<br>
-    ✔ Reduced manual effort<br>
-    ✔ Faster validation cycles<br><br>
-    Automate complex validation processes to deliver faster updates
-    with fewer human errors.
-    </div>
-    """, unsafe_allow_html=True)
+    with col2:
+        st.markdown("""
+        <div class="card" style="background:#FEF9E7;">
+        ⚙️<br>
+        <b>Intelligent Automation</b><br><br>
+        ✔ Agentic AI workflows<br>
+        ✔ Reduced manual effort<br>
+        ✔ Faster validation cycles<br><br>
+        Automate complex validation processes to deliver faster updates
+        with fewer human errors.
+        </div>
+        """, unsafe_allow_html=True)
 
-with col3:
-    st.markdown("""
-    <div class="card" style="background:#FADBD8;">
-    ❤️<br>
-    <b>Improved Patient Trust</b><br><br>
-    ✔ Verified provider profiles<br>
-    ✔ Accurate contact details<br>
-    ✔ Reliable healthcare access<br><br>
-    Build confidence and trust with verified, up-to-date provider
-    information patients can rely on.
-    </div>
-    """, unsafe_allow_html=True)
+    with col3:
+        st.markdown("""
+        <div class="card" style="background:#FADBD8;">
+        ❤️<br>
+        <b>Improved Patient Trust</b><br><br>
+        ✔ Verified provider profiles<br>
+        ✔ Accurate contact details<br>
+        ✔ Reliable healthcare access<br><br>
+        Build confidence and trust with verified, up-to-date provider
+        information patients can rely on.
+        </div>
+        """, unsafe_allow_html=True)
 
 
-st.markdown("<br>", unsafe_allow_html=True)
-if st.button("🚀 Get Started"):
-    st.session_state.page = "Provider Dashboard"
+    st.markdown("<br>", unsafe_allow_html=True)
+    if st.button("🚀 Get Started"):
+      st.session_state.page = "Provider Dashboard"
 
 # ================= PROVIDER DASHBOARD =================
 elif st.session_state.page == "Provider Dashboard":
