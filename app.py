@@ -27,7 +27,7 @@ doctor_data = [
         "specialty": "Dermatology",
         "phone": "9876543202",
         "address": "Mumbai",
-        "image": "https://img.freepik.com/premium-photo/indian-female-doctor-portrait-south-indian-young-lady-doctor-holding-stethoscope-hand_527904-1841.jpg?w=740"
+        "image": "https://img.freepik.com/premium-photo/woman-white-lab-coat-is-posing-photo_1262781-7688.jpg"
     },
     {
         "name": "Dr. Rajesh Iyer",
