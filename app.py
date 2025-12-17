@@ -240,7 +240,7 @@ elif st.session_state.page == "Provider Dashboard":
     with nav3:
         if st.button("🧾 Audit Logs"):
             st.session_state.page = "Audit Logs"
-            elif st.session_state.page == "Validation Simulation":
+elif st.session_state.page == "Validation Simulation":
 
     st.markdown("""
     <h1 class="snake"
