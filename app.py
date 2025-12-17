@@ -330,25 +330,25 @@ elif st.session_state.page == "Provider Dashboard":
    
     nav1, nav2, nav3 = st.columns(3)
 
-   with nav1:
-       st.markdown("<div class='top-nav nav-validate'>", unsafe_allow_html=True)
-       if st.button("🧪 Validation Simulation"):
-           st.session_state.page = "Validation Simulation"
-       st.markdown("</div>", unsafe_allow_html=True)
+    with nav1:
+        st.markdown("<div class='top-nav nav-validate'>", unsafe_allow_html=True)
+        if st.button("🧪 Validation Simulation"):
+            st.session_state.page = "Validation Simulation"
+        st.markdown("</div>", unsafe_allow_html=True)
 
-   with nav2:
-       st.markdown("<div class='top-nav nav-analytics'>", unsafe_allow_html=True)
-       if st.button("📊 Analytics"):
-           st.session_state.page = "Analytics"
-       st.markdown("</div>", unsafe_allow_html=True)
+    with nav2:
+        st.markdown("<div class='top-nav nav-analytics'>", unsafe_allow_html=True)
+        if st.button("📊 Analytics"):
+            st.session_state.page = "Analytics"
+        st.markdown("</div>", unsafe_allow_html=True)
 
-   with nav3:
-       st.markdown("<div class='top-nav nav-audit'>", unsafe_allow_html=True)
-       if st.button("🧾 Audit Logs"):
-           st.session_state.page = "Audit Logs"
-       st.markdown("</div>", unsafe_allow_html=True)
+    with nav3:
+        st.markdown("<div class='top-nav nav-audit'>", unsafe_allow_html=True)
+        if st.button("🧾 Audit Logs"):
+            st.session_state.page = "Audit Logs"
+        st.markdown("</div>", unsafe_allow_html=True)
 
-   st.markdown("---")
+    st.markdown("---")
 
 
 elif st.session_state.page == "Validation Simulation":
