@@ -167,7 +167,7 @@ with col3:
         st.session_state.page = "Provider Dashboard"
 
 # ================= PROVIDER DASHBOARD =================
-    elif st.session_state.page == "Provider Dashboard":
+elif st.session_state.page == "Provider Dashboard":
 
     st.markdown("""
     <h1 onclick="this.classList.add('snake')"
