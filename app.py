@@ -34,14 +34,14 @@ doctor_data = [
         "specialty": "Neurology",
         "phone": "9876543203",
         "address": "Bangalore",
-        "image": "https://img.freepik.com/premium-photo/handsome-doctor-isolated_118124-72755.jpg"
+        "image": "https://img.freepik.com/premium-photo/photo-smiling-doctor-with-strethoscope-isolated-one-color-background_953680-46518.jpg"
     },
     {
         "name": "Dr. Pooja Sharma",
         "specialty": "Orthopedics",
         "phone": "9876543204",
         "address": "Delhi",
-        "image": "https://thumbs.dreamstime.com/b/smiling-indian-doctor-woman-23239270.jpg?w=768"
+        "image": "https://img.freepik.com/premium-photo/female-doctor_1158146-4.jpg"
     },
     {
         "name": "Dr. Anil Verma",
