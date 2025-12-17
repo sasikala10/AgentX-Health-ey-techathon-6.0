@@ -345,7 +345,6 @@ elif st.session_state.page == "Validation Simulation":
 
     # ---------- VALIDATION LOGIC ----------
     if submitted:
-
         st.info("🔍 Agentic AI validating provider data...")
         progress = st.progress(0)
 
@@ -353,11 +352,25 @@ elif st.session_state.page == "Validation Simulation":
             time.sleep(0.4)
             progress.progress((i + 1) * 20)
 
-        status = np.random.choice(
-            ["Verified", "Needs Review", "Error"],
-            p=[0.6, 0.3, 0.1]
-        )
+        # Simulate detailed AI feedback
+        issues = []
+        if not phone.isdigit() or len(phone) != 10:
+            issues.append("Phone number format incorrect")
+        if len(address) < 5:
+            issues.append("Address seems too short")
+        if name.lower() in st.session_state.df['name'].str.lower().tolist():
+            issues.append("Duplicate entry detected")
 
+        # Determine status
+        if issues:
+            status = np.random.choice(["Needs Review", "Error"], p=[0.7, 0.3])
+        else:
+            status = "Verified"
+
+        # Simulate confidence score
+        confidence = np.random.randint(75, 100) if status=="Verified" else np.random.randint(40, 74)
+
+        # Show results
         if status == "Verified":
             st.success(f"✅ {name} validated successfully")
             st.balloons()
@@ -365,6 +378,16 @@ elif st.session_state.page == "Validation Simulation":
             st.warning(f"⚠ {name} needs manual review")
         else:
             st.error(f"❌ Validation error detected for {name}")
+
+        # Show detailed AI feedback
+        if issues:
+            st.markdown("<b>AI Detected Issues:</b>", unsafe_allow_html=True)
+            for issue in issues:
+                st.write(f"- {issue}")
+
+        # Show confidence bar
+        st.markdown(f"**Confidence Score:** {confidence}%")
+        st.progress(confidence)
 
         # ---------- ADD TO DASHBOARD ----------
         new_doc = {
@@ -375,16 +398,30 @@ elif st.session_state.page == "Validation Simulation":
             "image": "https://cdn-icons-png.flaticon.com/512/2910/2910762.png",
             "Validation Status": status
         }
-
         st.session_state.df = pd.concat(
             [st.session_state.df, pd.DataFrame([new_doc])],
             ignore_index=True
         )
 
+        # ---------- VALIDATION HISTORY ----------
+        if 'validation_history' not in st.session_state:
+            st.session_state.validation_history = []
+        st.session_state.validation_history.append({
+            "name": name,
+            "specialty": specialty,
+            "status": status,
+            "issues": issues,
+            "confidence": confidence
+        })
+
         st.markdown("<br>", unsafe_allow_html=True)
         st.info("📁 Provider added to Provider Directory Dashboard")
 
-    st.markdown("<br>", unsafe_allow_html=True)
+        # Show history
+        st.markdown("### 🗂️ Validation History")
+        history_df = pd.DataFrame(st.session_state.validation_history)
+        st.dataframe(history_df, use_container_width=True)
+
 
     if st.button("⬅ Back to Dashboard"):
         st.session_state.page = "Provider Dashboard"
