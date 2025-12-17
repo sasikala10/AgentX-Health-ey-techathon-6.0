@@ -27,7 +27,7 @@ doctor_data = [
         "specialty": "Dermatology",
         "phone": "9876543202",
         "address": "Mumbai",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+        "image": "https://img.freepik.com/premium-photo/woman-white-lab-coat-is-posing-photo_1262781-7688.jpg"
     },
     {
         "name": "Dr. Rajesh Iyer",
@@ -41,7 +41,7 @@ doctor_data = [
         "specialty": "Orthopedics",
         "phone": "9876543204",
         "address": "Delhi",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/37/Generic_profile_picture.png"
+        "image": "https://png.pngtree.com/png-vector/20240104/ourmid/pngtree-indian-female-medical-doctor-general-png-image_10944228.png"
     },
     {
         "name": "Dr. Anil Verma",
@@ -55,7 +55,7 @@ doctor_data = [
         "specialty": "Gynecology",
         "phone": "9876543206",
         "address": "Vijayawada",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg"
+        "image": "https://media.istockphoto.com/id/513433028/photo/indian-female-doctor-standing-happy-indian-doctor.jpg?s=1024x1024&w=is&k=20&c=JydC_fDvT-NtD0iXRVty9U168LC-GR2l4leGmaSQKuo="
     },
     {
         "name": "Dr. Rohit Malhotra",
@@ -69,7 +69,7 @@ doctor_data = [
         "specialty": "ENT",
         "phone": "9876543208",
         "address": "Ahmedabad",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Unknown_person.jpg"
+        "image": "https://img.freepik.com/premium-photo/smiley-female-doctor_1158146-18766.jpg"
     },
     {
         "name": "Dr. Suresh Nair",
@@ -83,7 +83,7 @@ doctor_data = [
         "specialty": "Psychiatry",
         "phone": "9876543210",
         "address": "Kolkata",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Iconic_image_placeholder.png"
+        "image": "https://img.freepik.com/premium-photo/smiley-female-doctor_1158146-5923.jpg"
     }
 ]
 
