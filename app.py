@@ -316,7 +316,7 @@ elif st.session_state.page == "Analytics":
 
     if st.button("⬅ Back to Dashboard"):
         st.session_state.page = "Provider Dashboard"
-        elif st.session_state.page == "Audit Logs":
+elif st.session_state.page == "Audit Logs":
 
     st.markdown("""
     <h1 class="snake"
