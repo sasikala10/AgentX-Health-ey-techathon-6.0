@@ -211,7 +211,7 @@ if st.session_state.page == "Home":
 
     st.markdown(
         "<div style='text-align:center;margin-top:15px;'>"
-        "<img src='https://www.sciencephoto.com/media/895584/view/male-doctor-in-blue-uniform-with-stethoscope' "
+        "<img src='https://wallpapers.com/images/hd/black-stethoscope-on-a-blue-surface-lyo42btur121xglr.jpg' "
         "width='160' class='doctor-img'/></div>",
         unsafe_allow_html=True
     )
