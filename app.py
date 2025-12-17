@@ -211,7 +211,7 @@ if st.session_state.page == "Home":
 
     st.markdown(
         "<div style='text-align:center;margin-top:15px;'>"
-        "<img src='https://static.vecteezy.com/system/resources/previews/034/637/931/large_2x/a-futuristic-robotic-doctor-in-a-doctor-s-coat-with-a-stethoscope-on-a-blue-background-co'ncept-of-advanced-medical-technology-ai-generative-photo.jpg' "
+        "<img src='https://www.sciencephoto.com/media/895584/view/male-doctor-in-blue-uniform-with-stethoscope' "
         "width='160' class='doctor-img'/></div>",
         unsafe_allow_html=True
     )
