@@ -496,7 +496,7 @@ elif st.session_state.page == "Audit Logs":
     st.markdown("<br>", unsafe_allow_html=True)
 
     if st.button("⬅ Back to Dashboard"):
-        st.session_state.page = "Provider Dashboard"
+        st.session_state.page = "Home"
 
 
 
