@@ -268,28 +268,17 @@ if st.session_state.page == "Home":
 elif st.session_state.page == "Provider Dashboard":
 
     st.markdown("""
-<style>
-.top-nav button {
-    width: 100%;
-    font-size: 24px;
-    font-weight: bold;
-    padding: 12px 0;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+    <h1 onclick="this.classList.add('snake')"
+    style="text-align:center;
+    font-size:48px;
+    color:#2E86C1;
+    cursor:pointer;
+    text-shadow:0 0 12px rgba(46,134,193,0.8);">
+    Provider Directory Dashboard
+    </h1>
+    """, unsafe_allow_html=True)
 
-.top-nav button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
 
-.nav-validate button { background-color:#17A589; color:white; }
-.nav-analytics button { background-color:#AF7AC5; color:white; }
-.nav-audit button { background-color:#D35400; color:white; }
-</style>
-""", unsafe_allow_html=True)
 
     specialties = st.session_state.df['specialty'].unique().tolist()
     statuses = ["Verified","Needs Review","Error"]
