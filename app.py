@@ -55,7 +55,7 @@ doctor_data = [
         "specialty": "Gynecology",
         "phone": "9876543206",
         "address": "Vijayawada",
-        "image": "https://media.istockphoto.com/id/513433028/photo/indian-female-doctor-standing-happy-indian-doctor.jpg?s=1024x1024&w=is&k=20&c=JydC_fDvT-NtD0iXRVty9U168LC-GR2l4leGmaSQKuo="
+        "image": "https://static.wixstatic.com/media/cadcfa_644de5333f304ab68bd14a6c832bb2f5~mv2.jpg/v1/fill/w_429,h_469,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/Untitled-2.jpg"
     },
     {
         "name": "Dr. Rohit Malhotra",
@@ -69,7 +69,7 @@ doctor_data = [
         "specialty": "ENT",
         "phone": "9876543208",
         "address": "Ahmedabad",
-        "image": "https://img.freepik.com/premium-photo/smiley-female-doctor_1158146-18766.jpg"
+        "image": "https://www.herpulse.in/wp-content/uploads/2021/11/Aunty-Resize.png"
     },
     {
         "name": "Dr. Suresh Nair",
@@ -83,7 +83,7 @@ doctor_data = [
         "specialty": "Psychiatry",
         "phone": "9876543210",
         "address": "Kolkata",
-        "image": "https://img.freepik.com/premium-photo/smiley-female-doctor_1158146-5923.jpg"
+        "image": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA2L3Jhd3BpeGVsX29mZmljZV8zN19hX3Bob3RvX29mX2FfZmVtYWxlX2luZGlhbl9kb2N0b3Jfc21pbGluZ19mb19iNzk1NDhiNC1mYTIyLTQ4NTktOTFlMy1kZmM1ODIxNjljZWNfMS5qcGc.jpg"
     }
 ]
 
