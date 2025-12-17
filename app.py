@@ -211,7 +211,7 @@ if st.session_state.page == "Home":
 
     st.markdown(
         "<div style='text-align:center;margin-top:15px;'>"
-        "<img src='https://chatgpt.com/backend-api/estuary/content?id=file_00000000c83c71fd9a56b47f1abc1142&ts=490548&p=fs&cid=1&sig=43d0a092956916ba40c20bc64f422008ef36fe9e4b38935a5c4a2f16a7996e76&v=0' "
+        "<img src='https://nividous.com/blogs/how-agentic-ai-is-transforming-healthcare-diagnostics/' "
         "width='160' class='doctor-img'/></div>",
         unsafe_allow_html=True
     )
