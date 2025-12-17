@@ -254,30 +254,77 @@ elif st.session_state.page == "Validation Simulation":
 
     st.markdown("""
     <div class="card" style="background:#E8F8F5;">
-    🤖 <b>Agentic AI Validation Flow</b><br><br>
-    ✔ License verification<br>
-    ✔ Phone & address cross-check<br>
-    ✔ Duplicate detection<br>
-    ✔ Confidence score generation
+    🤖 <b>Simulate New Provider Validation</b><br><br>
+    Enter provider details to see how Agentic AI validates
+    credentials, contact data, and consistency in real-time.
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    progress = st.progress(0)
-    status_text = st.empty()
+    # ---------- VALIDATION FORM ----------
+    with st.form("validation_form"):
+        col1, col2 = st.columns(2)
 
-    for i in range(1, 6):
-        status_text.markdown(f"🔍 Running validation step {i}...")
-        time.sleep(0.5)
-        progress.progress(i * 20)
+        with col1:
+            name = st.text_input("Doctor Name")
+            specialty = st.selectbox(
+                "Specialty",
+                st.session_state.df['specialty'].unique()
+            )
 
-    status_text.markdown("✅ Validation Completed Successfully")
+        with col2:
+            phone = st.text_input("Phone Number")
+            address = st.text_input("Address")
+
+        submitted = st.form_submit_button("🧪 Run Validation")
+
+    # ---------- VALIDATION LOGIC ----------
+    if submitted:
+
+        st.info("🔍 Agentic AI validating provider data...")
+        progress = st.progress(0)
+
+        for i in range(5):
+            time.sleep(0.4)
+            progress.progress((i + 1) * 20)
+
+        status = np.random.choice(
+            ["Verified", "Needs Review", "Error"],
+            p=[0.6, 0.3, 0.1]
+        )
+
+        if status == "Verified":
+            st.success(f"✅ {name} validated successfully")
+            st.balloons()
+        elif status == "Needs Review":
+            st.warning(f"⚠ {name} needs manual review")
+        else:
+            st.error(f"❌ Validation error detected for {name}")
+
+        # ---------- ADD TO DASHBOARD ----------
+        new_doc = {
+            "name": name,
+            "specialty": specialty,
+            "phone": phone,
+            "address": address,
+            "image": "https://cdn-icons-png.flaticon.com/512/2910/2910762.png",
+            "Validation Status": status
+        }
+
+        st.session_state.df = pd.concat(
+            [st.session_state.df, pd.DataFrame([new_doc])],
+            ignore_index=True
+        )
+
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.info("📁 Provider added to Provider Directory Dashboard")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     if st.button("⬅ Back to Dashboard"):
         st.session_state.page = "Provider Dashboard"
+
 elif st.session_state.page == "Analytics":
 
     st.markdown("""
