@@ -327,18 +327,18 @@ elif st.session_state.page == "Provider Dashboard":
     nav1, nav2, nav3 = st.columns(3)
 
     with nav1:
-       if st.button("🧪 Validation Simulation"):
-          st.session_state.page = "Validation Simulation"
-       st.markdown("<div class='nav-item nav-validate'>Validation Simulation</div>", unsafe_allow_html=True)
+        if st.button("🧪 Validation Simulation"):
+            st.session_state.page = "Validation Simulation"
+        st.markdown("<div class='nav-item nav-validate'>Validation Simulation</div>", unsafe_allow_html=True)
 
     with nav2:
         if st.button("📊 Analytics"):
-          st.session_state.page = "Analytics"
+            st.session_state.page = "Analytics"
         st.markdown("<div class='nav-item nav-analytics'>Analytics</div>", unsafe_allow_html=True)
 
     with nav3:
         if st.button("🧾 Audit Logs"):
-          st.session_state.page = "Audit Logs"
+            st.session_state.page = "Audit Logs"
         st.markdown("<div class='nav-item nav-audit'>Audit Logs</div>", unsafe_allow_html=True)
 
     st.markdown("---")
