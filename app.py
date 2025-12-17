@@ -264,9 +264,10 @@ elif st.session_state.page == "Provider Dashboard":
             with cols[j]:
                 doc = df.iloc[idx]
                 st.markdown(
-                    f"<img src='{doc['image']}' width='100' class='doctor-img'/>",
+                    f"<img src='{doc['image']}' width='120' height='120' style='object-fit:cover; border-radius:50%;'/>",
                     unsafe_allow_html=True
                 )
+
                 st.markdown(f"**{doc['name']}**")
                 st.markdown(doc['specialty'])
                 st.markdown(doc['phone'])
